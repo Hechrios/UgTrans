@@ -1,0 +1,165 @@
+﻿<!doctype html>
+<html lang="ug" class="fonts-classic" data-theme="day" data-ark-theme="corporate" data-ark-depth="maximal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#B0C4DE">
+  <title>ئۇيغۇر يېزىق ترانسكرىپسىيەسى</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#converterWorkspace">Skip to converter</a>
+
+  <div class="corporate-stage" aria-hidden="true">
+    <span class="stage-shape shape-main"></span>
+    <span class="stage-shape shape-secondary"></span>
+    <span class="stage-shape shape-tertiary"></span>
+  </div>
+
+  <header class="app-header">
+    <div class="header-shellline">
+      <div class="shell-brand" aria-label="Transcription system">
+        <span class="shell-brand-mark" aria-hidden="true"></span>
+        <span><strong>TRANS//SCRIPT</strong><small>MULTI-SCRIPT CONVERTER</small></span>
+      </div>
+      <div class="shell-status" role="status" aria-live="polite">
+        <span class="status-pill">7 SCRIPTS</span>
+        <span class="status-pill route-pill">ROUTE <strong id="routeReadout">UEY → ULY</strong></span>
+        <span class="status-pill depth-pill">DEPTH 04</span>
+      </div>
+    </div>
+
+    <div class="header-body">
+      <div class="title-stack" dir="rtl">
+        <p class="title-kicker">UEY / ULY / UYY / UHY / UTY / UXY / UKY</p>
+        <h1 class="title-main">ئۇيغۇر يېزىق ترانسكرىپسىيەسى</h1>
+        <p class="title-subtitle" id="titleSubtitle" dir="ltr">Uyghur Yéziq Transkripsiyesi</p>
+      </div>
+
+      <div class="top-actions" role="group" aria-label="Display settings">
+        <button class="utility-button font-toggle" id="fontToggle" type="button" aria-label="Switch font family">
+          <span class="utility-icon font-glyph" aria-hidden="true">Aa</span>
+          <span class="utility-copy">
+            <span class="utility-kicker">Font</span>
+            <span class="utility-value" id="fontModeLabel">UKIJ + Times</span>
+          </span>
+        </button>
+
+        <button class="utility-button theme-toggle" id="themeToggle" type="button" aria-label="Switch day and night theme">
+          <span class="theme-icon" aria-hidden="true">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 15.2A8.2 8.2 0 0 1 8.8 4a8.5 8.5 0 1 0 11.2 11.2Z"></path>
+            </svg>
+          </span>
+          <span class="utility-copy">
+            <span class="utility-kicker">Theme</span>
+            <span class="utility-value" id="themeModeLabel">Day</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <section class="converter-workspace" id="converterWorkspace" aria-label="Uyghur script converter">
+      <article class="editor-panel source-panel" aria-labelledby="sourceLabel">
+        <header class="panel-header">
+          <div class="field-heading">
+            <span class="panel-index">01</span>
+            <label class="field-label" id="sourceLabel" for="sourceScript">كىرگۈزۈش</label>
+          </div>
+          <div class="select-shell">
+            <select id="sourceScript" aria-label="Input script">
+              <option value="UEY" selected>UEY</option>
+              <option value="ULY">ULY</option>
+              <option value="UYY">UYY</option>
+              <option value="UHY">UHY</option>
+              <option value="UTY">UTY</option>
+              <option value="UXY">UXY</option>
+              <option value="UKY">UKY</option>
+            </select>
+            <svg class="select-chevron" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m5 7.5 5 5 5-5"></path>
+            </svg>
+          </div>
+        </header>
+
+        <div class="textarea-shell source-shell">
+          <textarea id="inputText" dir="rtl" spellcheck="false" aria-label="Input text">ئۇيغۇر ئېلىپبەسى</textarea>
+        </div>
+      </article>
+
+      <div class="convert-column">
+        <button class="convert-button" id="convertButton" type="button" aria-label="Convert text">
+          <svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 11h16"></path>
+            <path d="m18 7 4 4-4 4"></path>
+            <path d="M26 21H10"></path>
+            <path d="m14 17-4 4 4 4"></path>
+          </svg>
+          <span>ئايلاندۇرۇش</span>
+        </button>
+      </div>
+
+      <article class="editor-panel output-panel" aria-labelledby="targetLabel">
+        <header class="panel-header">
+          <div class="output-tools">
+            <div class="select-shell">
+              <select id="targetScript" aria-label="Output script">
+                <option value="UEY">UEY</option>
+                <option value="ULY" selected>ULY</option>
+                <option value="UYY">UYY</option>
+                <option value="UHY">UHY</option>
+                <option value="UTY">UTY</option>
+                <option value="UXY">UXY</option>
+                <option value="UKY">UKY</option>
+              </select>
+              <svg class="select-chevron" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m5 7.5 5 5 5-5"></path>
+              </svg>
+            </div>
+            <button class="i-toggle" id="ulyToggle" type="button" hidden aria-label="Change ULY e output">É é</button>
+            <button class="i-toggle" id="iToggle" type="button" hidden aria-label="Change UTY i output">I i</button>
+            <button class="i-toggle" id="uhyToggle" type="button" hidden aria-label="Change UHY diacritic output">Ä ä</button>
+          </div>
+          <div class="field-heading">
+            <span class="panel-index">02</span>
+            <label class="field-label" id="targetLabel" for="targetScript">چىقىرىش</label>
+          </div>
+        </header>
+
+        <div class="textarea-shell output-shell">
+          <textarea id="outputText" dir="ltr" readonly spellcheck="false" aria-label="Output text"></textarea>
+          <button class="copy-button" id="copyButton" type="button" aria-label="Copy output text">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="8" width="11" height="11" rx="1.5"></rect>
+              <path d="M16 8V6.5A1.5 1.5 0 0 0 14.5 5h-9A1.5 1.5 0 0 0 4 6.5v9A1.5 1.5 0 0 0 5.5 17H8"></path>
+            </svg>
+            <span id="copyLabel">كۆچۈرۈش</span>
+          </button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="app-footer" id="scriptTrack" aria-label="Script route">
+    <span class="track-label">ROUTE</span>
+    <span data-script="UEY">UEY</span>
+    <span data-script="ULY">ULY</span>
+    <span data-script="UYY">UYY</span>
+    <span data-script="UHY">UHY</span>
+    <span data-script="UTY">UTY</span>
+    <span data-script="UXY">UXY</span>
+    <span data-script="UKY">UKY</span>
+  </footer>
+
+  <p class="sr-only" id="liveStatus" aria-live="polite"></p>
+  <script src="./rules.js"></script>
+  <script src="./converter.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

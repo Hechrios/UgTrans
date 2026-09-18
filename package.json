@@ -1,0 +1,11 @@
+﻿{
+  "name": "uyghur-script-transcriber",
+  "version": "1.0.0",
+  "private": true,
+
+  "description": "UEY, ULY, UYY, UHY, UTY, UXY and UKY script converter.",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "python scripts/generate_rules.py && node --test tests/converter.test.js"
+  }
+}
