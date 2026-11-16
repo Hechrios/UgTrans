@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   'use strict';
 
   const converter = window.UyghurConverter;
@@ -75,6 +75,24 @@
       state.theme === 'night' ? '#172123' : '#B0C4DE'
     );
     if (persist) writePreference('uyghur-theme', state.theme);
+  }
+
+  // 用户没手动选过主题时跟随系统深浅色（手动选过就不再干扰）
+  function followSystemScheme(event) {
+    let saved = null;
+    try {
+      saved = window.localStorage.getItem('uyghur-theme');
+    } catch {
+      return;
+    }
+    if (!saved) setTheme(event.matches ? 'night' : 'day', false);
+  }
+
+  const schemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  if (schemeQuery.addEventListener) {
+    schemeQuery.addEventListener('change', followSystemScheme);
+  } else if (schemeQuery.addListener) {
+    schemeQuery.addListener(followSystemScheme);
   }
 
   function updateTextDirection() {
@@ -177,6 +195,19 @@
     typeNext();
   }
 
+  // 手机上按下主按钮后把结果滚进视野，并顺手收起键盘
+  function revealOutput() {
+    if (!window.matchMedia('(max-width: 930px)').matches) return;
+    if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+    const panel = document.querySelector('.output-panel');
+    if (!panel) return;
+    const top = panel.getBoundingClientRect().top + window.pageYOffset - 8;
+    window.scrollTo({
+      top: top < 0 ? 0 : top,
+      behavior: reduceMotion.matches ? 'auto' : 'smooth'
+    });
+  }
+
   function convertNow() {
     try {
       outputText.value = converter.convert(inputText.value, sourceScript.value, targetScript.value, {
@@ -251,7 +282,10 @@
     setTheme(state.theme === 'day' ? 'night' : 'day', true);
   });
 
-  convertButton.addEventListener('click', convertNow);
+  convertButton.addEventListener('click', function () {
+    convertNow();
+    revealOutput();
+  });
   copyButton.addEventListener('click', copyOutput);
   sourceScript.addEventListener('change', handleSourceChange);
   targetScript.addEventListener('change', handleTargetChange);
@@ -287,7 +321,7 @@
   inputText.value = defaultText;
   targetScript.dataset.previous = targetScript.value;
   setFontMode(readPreference('uyghur-font-mode', 'classic'), false);
-  setTheme(readPreference('uyghur-theme', 'day'), false);
+  setTheme(readPreference('uyghur-theme', document.documentElement.dataset.theme || 'day'), false);
   updateVariantToggles();
   updateTextDirection();
   convertNow();
