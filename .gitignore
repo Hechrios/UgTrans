@@ -1,3 +1,14 @@
-﻿node_modules/
+node_modules/
 test-output.txt
 *.log
+
+# —— 本地工具目录 / 临时产物：绝不能变成 160000 子模块指针 ——
+UgTrans/
+.codeartsdoer/
+.codegraph/
+.opencode/
+Birinchi_Test/
+~/
+_probe.*
+cleanup-repo.*
+push.bat
